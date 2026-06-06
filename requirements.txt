@@ -10,3 +10,4 @@ pydantic
 python-dotenv
 langchain-tavily
 tavily-python
+python-multipart
