@@ -1,0 +1,12 @@
+elevenlabs
+groq
+fastapi
+uvicorn
+langgraph
+langchain
+langchain-groq
+langchain-community
+pydantic
+python-dotenv
+langchain-tavily
+tavily-python
