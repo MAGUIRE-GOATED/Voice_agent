@@ -7,7 +7,8 @@ from fastapi.responses import Response
 from pydantic import BaseModel
 from langchain_core.messages import HumanMessage
 from groq import Groq
-from elevenlabs.client import ElevenLabs
+from gtts import gTTS
+import io
 from graph import graph
 import os
 
@@ -61,15 +62,12 @@ async def voice_chat(audio: UploadFile = File(...), session_id: str = Form(...))
     )
     response_text = result["messages"][-1].content
 
-    # STEP 3: ElevenLabs TTS — text → audio bytes
-    el_client = ElevenLabs(api_key=os.getenv("ELEVENLABS_API_KEY"))
-    audio_stream = el_client.text_to_speech.convert(
-        text=response_text,
-        voice_id="JBFqnCBsd6RMkjVDRZzb",
-        model_id="eleven_multilingual_v2",
-        output_format="mp3_44100_128",
-    )
-    audio_data = b"".join(audio_stream)
+    # STEP 3: gTTS TTS — text → audio bytes
+    tts = gTTS(text=response_text, lang='en')
+    audio_buffer = io.BytesIO()
+    tts.write_to_fp(audio_buffer)
+    audio_buffer.seek(0)
+    audio_data = audio_buffer.read()
 
     # STEP 4: Return audio back to frontend
     return Response(content=audio_data, media_type="audio/mpeg")

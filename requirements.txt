@@ -1,4 +1,4 @@
-elevenlabs
+gTTS
 groq
 fastapi
 uvicorn
