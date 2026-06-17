@@ -27,6 +27,10 @@ class ChatRequest(BaseModel):
     message: str
     session_id: str
 
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
 @app.get("/")
 def root():
     return {"message": "Sports Agent API is running"}
