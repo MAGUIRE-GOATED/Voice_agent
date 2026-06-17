@@ -6,6 +6,9 @@ A production-grade AI voice agent that lets you ask sports questions out loud an
 
 **Live Demo:** [famous-salmiakki-506e70.netlify.app](https://famous-salmiakki-506e70.netlify.app)
 
+**API:** [https://voice-agent-ibou.onrender.com/](https://voice-agent-ibou.onrender.com/)
+
+
 ---
 
 ## What It Does
@@ -171,4 +174,4 @@ The Researcher can loop back to the Supervisor after a tool call, allowing multi
 
 ---
 
-Built by [Wali](https://github.com/MAGUIRE-GOATED) — first-year CS student at IIIT Delhi, building production AI agents.
+Built by [Wali](https://github.com/dev-wali552) — first-year CS student at IIIT Delhi, building production AI agents.
